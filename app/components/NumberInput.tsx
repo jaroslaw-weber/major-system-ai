@@ -3,18 +3,18 @@ import { fullNumberAtom, selectRandomWordsAtom } from "../state";
 
 export function NumberInput() {
   const [fullNumber, setFullNumber] = useAtom(fullNumberAtom);
-  const [,selectRandomWords]=useAtom(selectRandomWordsAtom)
-  const handleChange = (e:any) => {
+  const [, selectRandomWords] = useAtom(selectRandomWordsAtom);
+  const handleChange = (e: any) => {
     const n = e.target.value;
     setFullNumber(n);
-	selectRandomWords()
+    selectRandomWords();
   };
 
   return (
     <input
-      type="text"
+      type="number"
       placeholder="Enter number"
-      className="input input-bordered input-primary w-full max-w-xs"
+      className="input input-bordered input-primary w-full"
       value={fullNumber}
       onChange={handleChange}
     />

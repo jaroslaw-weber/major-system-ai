@@ -1,26 +1,28 @@
 import React from "react";
-import { useAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import clipboardCopy from "clipboard-copy";
-import { isPromptVisibleAtom, promptAtom } from "../state";
+import {
+  copyTextToClipboardAtom,
+  isPromptVisibleAtom,
+  promptAtom,
+} from "../state";
 
 const CopyToClipboardButton = () => {
-	const [text] = useAtom(promptAtom)
   const [isVisible] = useAtom(isPromptVisibleAtom);
+  const copyToClipboard = useSetAtom(copyTextToClipboardAtom);
   if (!isVisible) {
     return null;
   }
-  const handleCopyClick = () => {
-    clipboardCopy(text)
-      .then(() => {
-        alert("Text copied to clipboard!");
-      })
-      .catch((error) => {
-        console.error("Failed to copy text: ", error);
-      });
-  };
 
   return (
-    <button className="btn " onClick={handleCopyClick}>
+    <button
+      className="btn"
+      onClick={(e) =>
+        copyToClipboard(() => {
+          alert("Text copied to clipboard! Now paste it to chat gpt to get mnemonics!");
+        })
+      }
+    >
       Copy to Clipboard
     </button>
   );
