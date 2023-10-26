@@ -9,3 +9,9 @@ https://jaroslaw-weber.github.io/major-system-ai/
 # preview
 
 <img width="1424" alt="preview-image" src="https://github.com/jaroslaw-weber/major-system-ai/assets/9774233/0f6e6aa6-1970-4b17-9b24-b49140cc7684">
+
+# what is 'major system'?
+
+major system is a way to remember long numbers with mnemonics
+
+https://en.wikipedia.org/wiki/Mnemonic_major_system
