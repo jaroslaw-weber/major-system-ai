@@ -21,7 +21,7 @@ export function SelectMnemonicWord(p: {
   };
   return (
     <select
-      className="select select-bordered w-full max-w-xs"
+      className="select select-bordered w-full"
       onChange={handleSelectChange} // Add the onChange event handler
       value={selectedWord} // Set the selected value>
     >
