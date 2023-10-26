@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inconsolata } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Major System Ai',
   description: 'Generate Major System Mnemonics with Ai',
 }
+const font = Inconsolata({
+  subsets: ['latin'],
+})
 
 export default function RootLayout({
   children,
@@ -16,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={font.className}>{children}</body>
     </html>
   )
 }

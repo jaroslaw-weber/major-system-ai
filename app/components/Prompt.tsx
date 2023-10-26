@@ -1,6 +1,11 @@
 import { useAtom } from "jotai";
+
+import { Inconsolata } from 'next/font/google'
 import { isPromptVisibleAtom, promptAtom } from "../state";
 
+const font = Inconsolata({
+  subsets: ['latin'],
+})
 export function Prompt() {
   const [prompt] = useAtom(promptAtom);
   const [isPromptVisible] = useAtom(isPromptVisibleAtom);
@@ -17,7 +22,7 @@ export function Prompt() {
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png" />
           </div>
         </div>
-        <div className="chat-bubble text-sm">{prompt}</div>
+        <div className={"chat-bubble text-sm "+font.className}>{prompt}</div>
       </div>
     </div>
   );

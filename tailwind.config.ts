@@ -15,8 +15,8 @@ const config: Config = {
       },
 
       fontFamily: {
-        dosis: ['Dosis', 'sans'],
-        inter: ['Inter', 'sans-serif'],
+        agbalumo: ['Agbalumo', 'cursive'],
+        inconsolata: ['Inconsolata','monospace'],
       },
     },
   },

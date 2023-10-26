@@ -5,11 +5,13 @@ import {
   copyTextToClipboardAtom,
   isPromptVisibleAtom,
   promptAtom,
+  alertAtom,
 } from "../state";
 
 const CopyToClipboardButton = () => {
   const [isVisible] = useAtom(isPromptVisibleAtom);
   const copyToClipboard = useSetAtom(copyTextToClipboardAtom);
+  const [, setAlert] = useAtom(alertAtom);
   if (!isVisible) {
     return null;
   }
@@ -19,7 +21,11 @@ const CopyToClipboardButton = () => {
       className="btn"
       onClick={(e) =>
         copyToClipboard(() => {
-          alert("Text copied to clipboard! Now paste it to chat gpt to get mnemonics!");
+          setAlert({
+            title: "text copied!",
+            message:
+              "Text copied to clipboard! Now paste it to chat gpt to get mnemonics!",
+          });
         })
       }
     >

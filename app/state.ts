@@ -11,6 +11,17 @@ export const availableMnemonicsAtom = atom((get) => {
 
   return options;
 });
+
+export interface AlertContent{
+  title: string;
+  message: string;
+}
+
+export const alertAtom = atom<AlertContent>({
+  title: "",
+  message: "",
+});
+
 export const promptAtom = atom((get) => {
   const selected = get(selectedWordsAtom);
   const text = `Generate 1-3 sentence mnemonic for major system based on those words: ${selected
