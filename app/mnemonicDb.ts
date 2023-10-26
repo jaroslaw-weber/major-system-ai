@@ -23,7 +23,7 @@ export const mnemonicDb: Record<string, string[]> = {
   "21": ["net", "knot", "nut"],
   "22": ["nun", "neon", "nine"],
   "23": ["name", "gnome", "numb"],
-  "24": [],
+  "24": ["noir"],
   "25": ["nail"],
   "26": ["nudge", "nacho"],
   "27": ["neck", "nuke"],
