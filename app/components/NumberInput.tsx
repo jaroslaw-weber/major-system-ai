@@ -13,8 +13,8 @@ export function NumberInput() {
   return (
     <input
       type="number"
-      placeholder="Enter number"
-      className="input input-bordered input-primary w-full"
+      placeholder="Enter number you want to remember"
+      className="input input-bordered input-primary w-full text-xs sm:text-base"
       value={fullNumber}
       onChange={handleChange}
     />
