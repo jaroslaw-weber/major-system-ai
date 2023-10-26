@@ -21,7 +21,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-w-screen min-h-screen justify-center items-center font-inter">
+    <main className="flex min-w-screen min-h-screen justify-center items-center">
       <div className="flex flex-col gap-8  md:w-1/2 items-center justify-center">
         <Intro/>
         <NumberInput />
