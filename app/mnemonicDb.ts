@@ -75,7 +75,7 @@ export const mnemonicDb: Record<string, string[]> = {
   "73": ["comb", "gum"],
   "74": ["car", "care"],
   "75": ["coal", "call", "kale"],
-  "76": ["cash", "cage", "kiss"],
+  "76": ["cash", "cage"],
   "77": ["cog", "coke", "cake"],
   "78": ["cough", "cave", "coffee"],
   "79": ["cap"],
