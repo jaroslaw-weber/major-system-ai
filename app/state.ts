@@ -2,6 +2,7 @@ import { atom } from "jotai";
 import { getMnemonicWords } from "./getMnemonicWords";
 import { pick, sample } from "lodash";
 import clipboardCopy from "clipboard-copy";
+import _ from "lodash";
 
 export const fullNumberAtom = atom("");
 export const selectedWordsAtom = atom<string[]>([]);
@@ -45,6 +46,14 @@ export const selectRandomWordsAtom = atom(null, (get, set) => {
   console.log("randomly selected: ", selected);
   set(selectedWordsAtom, selected);
 });
+
+export const setRandomNumberAtom = atom(null, (get, set) => {
+
+  //get random 10 digit number
+  const randomNumber = _.random(1000000000, 9999999999).toString();
+  set(fullNumberAtom, randomNumber);
+  set(selectRandomWordsAtom)
+})
 
 export const copyTextToClipboardAtom = atom(null, (get, set, onCopied:()=>void) => {
   const text = get(promptAtom);

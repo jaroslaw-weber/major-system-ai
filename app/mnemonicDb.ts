@@ -1,4 +1,5 @@
 export const mnemonicDb: Record<string, string[]> = {
+  "00":["snooze"],
   "01": ["sat", "suit", "seed"],
   "02": ["sun", "swan", "snow"],
   "03": ["sum", "swim", "smile"],
