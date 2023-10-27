@@ -1,5 +1,5 @@
 export const mnemonicDb: Record<string, string[]> = {
-  "00":["snooze"],
+  "00":["sauce", "sis"],
   "01": ["sat", "suit", "seed"],
   "02": ["sun", "swan", "snow"],
   "03": ["sum", "swim", "smile"],
@@ -22,7 +22,7 @@ export const mnemonicDb: Record<string, string[]> = {
   "20": ["nose", "news"],
 
   "21": ["net", "knot", "nut"],
-  "22": ["nun", "neon", "nine"],
+  "22": ["nun", "neon"],
   "23": ["name", "gnome", "numb"],
   "24": ["noir"],
   "25": ["nail"],
@@ -88,7 +88,7 @@ export const mnemonicDb: Record<string, string[]> = {
   "85": ["fall", "foil"],
   "86": ["fish"],
   "87": ["fake", "fog"],
-  "88": ["five"],
+  "88": ["fifa"],
   "89": ["fav"],
   "90": ["buzz", "peace"],
   "91": ["bat", "bed", "bad"],
