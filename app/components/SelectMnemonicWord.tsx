@@ -12,6 +12,8 @@ export function SelectMnemonicWord(p: {
   const [selectedWords, setSelectedWords] = useAtom(selectedWordsAtom);
   const selectedWord = selectedWords?.[index]
 
+  const selectedWordDisplay =option.digits+': '+ selectedWord
+
   const handleSelectChange = (event:any) => {
     const newValue = event.target.value;
 	const newWords = [...selectedWords]
@@ -25,12 +27,9 @@ export function SelectMnemonicWord(p: {
       onChange={handleSelectChange} // Add the onChange event handler
       value={selectedWord} // Set the selected value>
     >
-      <option disabled selected>
-        {selectedWord}
-      </option>
       {words?.map((word, i) => (
         <option key={i} value={word}>
-          {word}
+          {option.digits}: {word}
         </option>
       ))}
     </select>
