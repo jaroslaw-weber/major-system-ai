@@ -24,7 +24,7 @@ export const alertAtom = atom<AlertContent>({
 });
 
 const promptTemplates = [
-  //dalle 4
+  //dalle 3
   `Generate images for following words: WORD_LIST. You should include 3 words per image. Images should be cute or artistic. Also can u try to put words in order in the image?`,
   //chat gpt
   `Generate 1-3 sentence mnemonic for major system based on those words: WORD_LIST. Order is super important. Answer should be concise. Give me 10 choices. Highlight those words in the text. `,
