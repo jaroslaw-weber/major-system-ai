@@ -13,7 +13,7 @@ export const availableMnemonicsAtom = atom((get) => {
   return options;
 });
 
-export interface AlertContent{
+export interface AlertContent {
   title: string;
   message: string;
 }
@@ -23,19 +23,38 @@ export const alertAtom = atom<AlertContent>({
   message: "",
 });
 
-export const promptAtom = atom((get) => {
-  const selected = get(selectedWordsAtom);
-  const text = `Generate 1-3 sentence mnemonic for major system based on those words: ${selected
-    .filter(Boolean)
-    .join(
-      ", "
-    )}. Order is super important. Answer should be concise. Give me 10 choices. Highlight those words in the text. `;
-  return text;
+const promptTemplates = [
+  //dalle 4
+  `Generate images following words: WORD_LIST. You should include 3 words per image.`,
+  //chat gpt
+  `Generate 1-3 sentence mnemonic for major system based on those words: WORD_LIST. Order is super important. Answer should be concise. Give me 10 choices. Highlight those words in the text. `,
+  `Generate 2-5 logical sentence mnemonic for major system based on those words: WORD_LIST. Order is super important. Answer should be concise. Give me 10 choices. Highlight those words in the text. `,
+  
+];
+
+export const promptAtom = atom((get)=>{
+  const words = get(selectedWordsAtom);
+  return getRandomPrompt(words)
 });
+
+function getRandomPrompt(words:string[]){
+  const wordList = words.filter(Boolean).join(", ");
+  const randomTemplate = sample(promptTemplates);
+  const text = randomTemplate?.replace("WORD_LIST", wordList);
+  return text;
+}
+
+export const setRandomPromptAtom = atom(null, (get,set)=>{
+  const words = get(selectedWordsAtom);
+//set again same words, should regenerate the prompt
+  set(selectedWordsAtom,[... words]);
+});
+
 export const isPromptVisibleAtom = atom((get) => {
   const selected = get(selectedWordsAtom);
   return selected.filter((x) => !!x).length > 0;
 });
+
 export const selectRandomWordsAtom = atom(null, (get, set) => {
   const selected: string[] = [];
   const available = get(availableMnemonicsAtom);
@@ -48,20 +67,22 @@ export const selectRandomWordsAtom = atom(null, (get, set) => {
 });
 
 export const setRandomNumberAtom = atom(null, (get, set) => {
-
   //get random 10 digit number
   const randomNumber = _.random(1000000000, 9999999999).toString();
   set(fullNumberAtom, randomNumber);
-  set(selectRandomWordsAtom)
-})
-
-export const copyTextToClipboardAtom = atom(null, (get, set, onCopied:()=>void) => {
-  const text = get(promptAtom);
-  clipboardCopy(text)
-    .then(() => {
-      onCopied()
-    })
-    .catch((error) => {
-      console.error("Failed to copy text: ", error);
-    });
+  set(selectRandomWordsAtom);
 });
+
+export const copyTextToClipboardAtom = atom(
+  null,
+  (get, set, onCopied: () => void) => {
+    const text = get(promptAtom);
+    clipboardCopy(text)
+      .then(() => {
+        onCopied();
+      })
+      .catch((error) => {
+        console.error("Failed to copy text: ", error);
+      });
+  }
+);

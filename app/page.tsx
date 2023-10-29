@@ -8,8 +8,10 @@ import {
   fullNumberAtom,
   isPromptVisibleAtom,
   promptAtom,
+  randomizePromptAtom,
   selectRandomWordsAtom,
   setRandomNumberAtom,
+  setRandomPromptAtom,
 } from "./state";
 import { getMnemonicWords } from "./getMnemonicWords";
 import { Prompt } from "./components/Prompt";
@@ -23,6 +25,7 @@ export default function Home() {
   const isPromptVisible = useAtomValue(isPromptVisibleAtom)
   const [, selectRandomWords] = useAtom(selectRandomWordsAtom);
   const setRandomNumber = useSetAtom(setRandomNumberAtom)
+  const setRandomPrompt = useSetAtom(setRandomPromptAtom)
   const [alert] = useAtom(alertAtom);
   const dropdowns = [];
   console.log("options", options);
@@ -34,20 +37,25 @@ export default function Home() {
 
   const randomizeButton = (
     <button className="btn btn-primary" onClick={(e) => selectRandomWords()}>
-      randomize
+      randomize words
     </button>
   );
   const randomNumberButton = (
-    <button className="btn btn-primary" onClick={(e) => setRandomNumber()}>
+    <button className="btn" onClick={(e) => setRandomNumber()}>
       generate random number
     </button>
   )
+  const randomizePromptButton = (
+    <button className="btn" onClick={(e) => setRandomPrompt()}>
+      get different prompt</button>)
 
   const promptPanel =<div  className="flex-1 flex flex-col gap-8" >
   <div className="pt-8">
     <Prompt />
   </div>
+
   <CopyToClipboardButton />
+  {randomizePromptButton}
 </div>
 
   return (

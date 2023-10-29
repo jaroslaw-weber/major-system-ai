@@ -1,7 +1,7 @@
-import { useAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 
 import { Inconsolata } from 'next/font/google'
-import { isPromptVisibleAtom, promptAtom } from "../state";
+import { isPromptVisibleAtom, promptAtom, setRandomPromptAtom } from "../state";
 
 const font = Inconsolata({
   subsets: ['latin'],
@@ -10,6 +10,7 @@ export function Prompt() {
   const [prompt] = useAtom(promptAtom);
   const [isPromptVisible] = useAtom(isPromptVisibleAtom);
   console.log("prompt", prompt);
+
   if (!isPromptVisible) {
     return null;
   }

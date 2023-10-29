@@ -18,7 +18,7 @@ const CopyToClipboardButton = () => {
 
   return (
     <button
-      className="btn"
+      className="btn btn-primary"
       onClick={(e) =>
         copyToClipboard(() => {
           setAlert({
