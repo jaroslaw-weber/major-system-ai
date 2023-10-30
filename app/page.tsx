@@ -5,10 +5,7 @@ import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import {
   alertAtom,
   availableMnemonicsAtom,
-  fullNumberAtom,
   isPromptVisibleAtom,
-  promptAtom,
-  randomizePromptAtom,
   selectRandomWordsAtom,
   setRandomNumberAtom,
   setRandomPromptAtom,
