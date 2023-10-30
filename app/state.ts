@@ -77,7 +77,7 @@ export const copyTextToClipboardAtom = atom(
   null,
   (get, set, onCopied: () => void) => {
     const text = get(promptAtom);
-    clipboardCopy(text)
+    clipboardCopy(text!)
       .then(() => {
         onCopied();
       })
